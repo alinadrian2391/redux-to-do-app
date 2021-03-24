@@ -11,5 +11,7 @@ export default (state = initialState, action) => {
         case types.add:
             stateCopy.items.push(action.payload);
             return stateCopy;
+        default:
+            return stateCopy;
     }
 };
