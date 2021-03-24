@@ -6,13 +6,20 @@ import {add} from '../../redux/actions'
 
 const Container = props => {
     const {items, add} = props;
-    const [inputValue, setInputValue] = React.useState("");
+    const [inputValue, setInputValue] = React.useState('');
 
     const onChangeHandler = event => {
         setInputValue(event.target.value);
     }
 
-   const addValue = () => add(inputValue)
+   const addValue = () => {
+       if (items.findIndex(i=> i === inputValue) < 0 ) {
+            add(inputValue)
+            setInputValue('')
+       } else {
+           alert(`${inputValue} already exist in list`)
+       }
+    }
 
     return <div className="myContainer container">
               <div className="d-flex justify-content-between">

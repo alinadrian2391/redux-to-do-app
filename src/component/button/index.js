@@ -1,10 +1,9 @@
-import {del} from '../../redux/actions'
+import {del,edit} from '../../redux/actions'
 import {connect} from 'react-redux'
-import {edit} from '../../redux/actions';
 
 
 const button = props => {
-    const {type, title, del, action} = props;
+    const {type, title, del, action,modifyValue, edit} = props;
     let buttonStyle;
     switch(type) {
         case 'Edit': buttonStyle = "btn-warning"; break;
@@ -14,10 +13,12 @@ const button = props => {
     }
 
     const manageValue = () => {
-        if (type==='Delete') 
+        if (type === 'Delete') 
             del(title);
+        if(type === 'Confirm')
+           edit({title,modifyValue});
 
-        if(action)
+        if(action)  // only for ui porpouses
             action(type === 'Edit')
 
     }
@@ -31,6 +32,7 @@ const button = props => {
 const mapDispatchToProps = dispatch => {
     return {
         del: data => dispatch(del(data)),
+        edit: data => dispatch(edit(data)),
     };
 };
 
