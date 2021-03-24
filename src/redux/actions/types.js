@@ -1,5 +1,7 @@
 export default {
-    delete: 'delete',
+    del: 'del',
     add: 'add',
     edit: 'edit'
+   
+
 };

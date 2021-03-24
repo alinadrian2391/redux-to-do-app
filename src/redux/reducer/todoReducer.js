@@ -11,6 +11,9 @@ export default (state = initialState, action) => {
         case types.add:
             stateCopy.items = [...stateCopy.items, action.payload];
             return stateCopy;
+            case types.del:
+                stateCopy.items = stateCopy.items.filter(item=>item!=action.payload);
+                return stateCopy;
         default:
             return stateCopy;
     }
