@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
 
     switch(action.type) {
         case types.add:
-            stateCopy.items.push(action.payload);
+            stateCopy.items = [...stateCopy.items, action.payload];
             return stateCopy;
         default:
             return stateCopy;
