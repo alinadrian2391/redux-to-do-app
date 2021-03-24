@@ -1,3 +1,7 @@
-span,button {
+button {
     margin-right: 10px;
+}
+
+.item {
+    margin-bottom: 10px;
 }
